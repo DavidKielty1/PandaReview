@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-// require("dotenv").config();
+
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -25,7 +25,6 @@ const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
 const MongoStore = require("connect-mongo");
-// const dbUrl = "mongodb://localhost:27017/yelp-camp";/
 const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
 
 mongoose.connect(dbUrl, {
