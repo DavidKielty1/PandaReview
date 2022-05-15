@@ -43,7 +43,7 @@ module.exports.showCampground = async (req, res) => {
     })
     .populate("author");
   if (!campground) {
-    req.flash("error", "Cannot find that restaurants!");
+    req.flash("error", "Cannot find that restaurant!");
     return res.redirect("/restaurants");
   }
   res.render("restaurants/show", { campground });
@@ -93,6 +93,6 @@ module.exports.updateCampground = async (req, res) => {
 module.exports.deleteCampground = async (req, res, next) => {
   const { id } = req.params;
   await Campground.findByIdAndDelete(id);
-  req.flash("success", "Successfully deleted campground!");
+  req.flash("success", "Successfully deleted restaurant!");
   res.redirect("/restaurants");
 };

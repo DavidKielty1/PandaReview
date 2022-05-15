@@ -61,7 +61,7 @@
         >
         <form
           class="d-inline mx-3"
-          action="/campgrounds/<%=campground._id%>?_method=DELETE"
+          action="/restaurants/<%=campground._id%>?_method=DELETE"
           method="POST"
         >
           <button class="card-link btn btn-danger">Delete</button>
@@ -83,7 +83,7 @@
     <%if (currentUser) {%>
     <h4>Leave a Review!</h4>
     <form
-      action="/campgrounds/<%=campground._id%>/reviews"
+      action="/restaurants/<%=campground._id%>/reviews"
       method="POST"
       class="mb-5 validated-form"
       novalidate
