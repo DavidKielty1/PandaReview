@@ -6,11 +6,11 @@ const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
   const campgrounds = await Campground.find({});
-  res.render("campgrounds/index", { campgrounds });
+  res.render("restaurants/index", { campgrounds });
 };
 
 module.exports.renderNewForm = (req, res) => {
-  res.render("campgrounds/new");
+  res.render("restaurants/new");
 };
 
 module.exports.createCampground = async (req, res, next) => {
@@ -29,8 +29,8 @@ module.exports.createCampground = async (req, res, next) => {
   campground.author = req.user._id;
   await campground.save();
   console.log(campground);
-  req.flash("success", "Successfully made a new campground!");
-  res.redirect(`/campgrounds/${campground._id}`);
+  req.flash("success", "Successfully made a new restaurant!!");
+  res.redirect(`/restaurants/${campground._id}`);
 };
 
 module.exports.showCampground = async (req, res) => {
@@ -43,20 +43,20 @@ module.exports.showCampground = async (req, res) => {
     })
     .populate("author");
   if (!campground) {
-    req.flash("error", "Cannot find that campground!");
-    return res.redirect("/campgrounds");
+    req.flash("error", "Cannot find that restaurants!");
+    return res.redirect("/restaurants");
   }
-  res.render("campgrounds/show", { campground });
+  res.render("restaurants/show", { campground });
 };
 
 module.exports.renderEditForm = async (req, res) => {
   const { id } = req.params;
   const campground = await Campground.findById(req.params.id);
   if (!campground) {
-    req.flash("error", "Cannot find that campground!");
-    return res.redirect("/campgrounds");
+    req.flash("error", "Cannot find that restaurant!");
+    return res.redirect("/restaurants");
   }
-  res.render("campgrounds/edit", { campground });
+  res.render("restaurants/edit", { campground });
 };
 
 module.exports.updateCampground = async (req, res) => {
@@ -86,13 +86,13 @@ module.exports.updateCampground = async (req, res) => {
     });
   }
   console.log(campground);
-  req.flash("success", "Successfully updated campground");
-  res.redirect(`/campgrounds/${campground._id}`);
+  req.flash("success", "Successfully updated restaurant");
+  res.redirect(`/restaurants/${campground._id}`);
 };
 
 module.exports.deleteCampground = async (req, res, next) => {
   const { id } = req.params;
   await Campground.findByIdAndDelete(id);
   req.flash("success", "Successfully deleted campground!");
-  res.redirect("/campgrounds");
+  res.redirect("/restaurants");
 };

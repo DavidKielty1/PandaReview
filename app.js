@@ -145,11 +145,11 @@ app.use((req, res, next) => {
 });
 
 app.use("/", userRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/reviews", reviewRoutes);
+app.use("/restaurants", campgroundRoutes);
+app.use("/restaurants/:id/reviews", reviewRoutes);
 
 app.get("/", (req, res) => {
-  res.render("campgrounds/home");
+  res.render("restaurants/home");
 });
 
 app.all("*", (req, res, next) => {
