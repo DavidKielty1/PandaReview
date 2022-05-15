@@ -1,7 +1,7 @@
 body {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(https://i.pinimg.com/564x/53/2e/f5/532ef5adb18b86509144a1ab7ed9e33a.jpg&ixlib=rb-1.2.1&auto=format&fit=crop&w=1041&q=80);
+    url(https://images.unsplash.com/photo-1518541355664-6ca16f8aacf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   background-size: cover;
   background-position: center;
   text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);

@@ -50,7 +50,7 @@
         <li class="list-group-item text-muted">
           Submitted by <%= campground.author.username %>
         </li>
-        <li class="list-group-item">£<%= campground.price %>/night</li>
+        <li class="list-group-item">£<%= campground.price %>/dish</li>
       </ul>
       <% if(currentUser && campground.author.equals(currentUser._id)){%>
       <div class="card-body">
@@ -68,7 +68,7 @@
         </form>
       </div>
       <div class="card-footer text-muted">
-        <a href="/campgrounds" class="text-muted">All Campgrounds</a>
+        <a href="/restaurants" class="text-muted">All Restauants</a>
       </div>
       <% }%>
     </div>
