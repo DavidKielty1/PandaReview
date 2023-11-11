@@ -6,11 +6,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-const { campgroundSchema, reviewSchema } = require("./schemas.js");
 const ExpressError = require("./utils/ExpressError");
-const Campground = require("./models/campground");
 const methodOverride = require("method-override");
-const Review = require("./models/review");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongo");
 const flash = require("connect-flash");
@@ -22,7 +19,6 @@ const mongoSanitize = require("express-mongo-sanitize");
 const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
-const MongoStore = require("connect-mongo");
 const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
 
 mongoose.connect(dbUrl, {
@@ -53,7 +49,7 @@ app.use(
   })
 );
 
-const secret = process.env.SECRET || "thisisnotagoodsecret";
+const secret = process.env.SECRET;
 
 const store = MongoDBStore.create({
   mongoUrl: dbUrl,
