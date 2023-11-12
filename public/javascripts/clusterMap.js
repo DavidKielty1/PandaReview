@@ -1,3 +1,4 @@
+const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
   container: "cluster-map",
