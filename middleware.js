@@ -1,6 +1,6 @@
-const { campgroundSchema, reviewSchema } = require("./schemas.js");
+const { restaurantSchema, reviewSchema } = require("./schemas.js");
 const expressError = require("./utils/ExpressError");
-const Campground = require("./models/campground");
+const Restaurant = require("./models/restaurant");
 const Review = require("./models/review");
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -12,8 +12,8 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
-module.exports.validateCampground = (req, res, next) => {
-  const { error } = campgroundSchema.validate(req.body);
+module.exports.validateRestaurant = (req, res, next) => {
+  const { error } = restaurantSchema.validate(req.body);
   if (error) {
     const msg = error.details.map((el) => el.message).join(",");
     throw new expressError(msg, 400);
@@ -24,8 +24,8 @@ module.exports.validateCampground = (req, res, next) => {
 
 module.exports.isAuthor = async (req, res, next) => {
   const { id } = req.params;
-  const campground = await Campground.findById(id);
-  if (!campground.author.equals(req.user._id)) {
+  const restaurant = await Restaurant.findById(id);
+  if (!restaurant.author.equals(req.user._id)) {
     req.flash("error", "You do not have permission to do that");
     return res.redirect(`/restaurants/${id}`);
   }

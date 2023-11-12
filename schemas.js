@@ -23,8 +23,8 @@ const extension = (joi) => ({
 const Joi = BaseJoi.extend(extension);
 const sanitizeHTML = require("sanitize-html");
 
-module.exports.campgroundSchema = Joi.object({
-  campground: Joi.object({
+module.exports.restaurantSchema = Joi.object({
+  restaurant: Joi.object({
     title: Joi.string().required().escapeHTML(),
     // image: Joi.string().required(),
     location: Joi.string().required().escapeHTML(),
